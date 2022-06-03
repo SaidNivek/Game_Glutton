@@ -9,6 +9,7 @@ Either logged in or not:
 - Browse popluar games, displaying their images, name, rating
 - Click on a game and see a detailed view of that game's information
 - Search for a game by name and have it and similarly named games display on the screen (If I type 'Cat' I should get Catan, Catacombms, etc.)
+- Access an About page that has informatiom about me, my love of board games, my game collection, and where to find my LinkedIn / GitHub
 
 If not logged in:
 - Be able to sign-up for an account
@@ -51,6 +52,7 @@ If logged in:
 ## Future Goals & Implementation
 
 ## API
+I will use the Board Game Geek API to seed my own database with data. The API is free to use and does not require any authentication. It's docs can be found [here](https://boardgamegeek.com/wiki/page/BGG_XML_API2).
 
 ## Feasibility Study
 
