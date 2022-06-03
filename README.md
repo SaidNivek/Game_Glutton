@@ -8,7 +8,7 @@ This site is called Game Gluttons. It is an app used to explore popular board ga
 Either logged in or not:
 - Browse popluar games, displaying their images, name, rating
 - Click on a game and see a detailed view of that game's information
-- Search for a game by name and have it and similarly named games display on the screen (If I type 'Cat' I should get Catan, Catacombms, etc.)
+- Search for a game by name and have it and similarly named games display on the screen (If I type 'Cat' I should get Catan, Catacombs, etc.)
 - Access an About page that has informatiom about me, my love of board games, my game collection, and where to find my LinkedIn / GitHub
 
 If not logged in:
@@ -38,8 +38,20 @@ If logged in:
 - Like a game
 - Remove a like from a game
 - Request for a new game to be added to the database (needs authorization from admin)
+- Set a favorite game within your user profile
 
 ## Wireframes
+### Home Page
+![image](https://user-images.githubusercontent.com/89223981/171911119-e9b0528e-c187-428c-b56c-19b9c37ce0f8.png)
+
+### Game Detail Page
+![image](https://user-images.githubusercontent.com/89223981/171911200-fbe56e2f-3c96-4000-9d68-46538de8e1b7.png)
+
+### User Profile Page
+![image](https://user-images.githubusercontent.com/89223981/171911224-bea82d42-ef04-48f6-9b30-206635394384.png)
+
+### Login/Signup Pages
+![image](https://user-images.githubusercontent.com/89223981/171911342-695a3786-26b8-4b2d-980d-c4fee8fb182e.png)
 
 ## ERD
 
