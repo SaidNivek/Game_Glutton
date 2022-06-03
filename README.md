@@ -1,7 +1,61 @@
 # Game Gluttons
 
 ## Project Description
-This site is called Game Gluttons.   
+This site is called Game Gluttons. It is an app used to explore popular board games and store a collection of your own board games. Users will be able to login/sign-up and save games to their collection. If not signed up, they will be able to browse popular games and see descriptions of them.  It's main goal is to recreate some of the functionality of boardgamegeeks.com. 
+
+## MVP User Stories
+### As a user I want to:
+Either logged in or not:
+- Browse popluar games, displaying their images, name, rating
+- Click on a game and see a detailed view of that game's information
+- Search for a game by name and have it and similarly named games display on the screen (If I type 'Cat' I should get Catan, Catacombms, etc.)
+
+If not logged in:
+- Be able to sign-up for an account
+- Be able to login with an already created account
+
+If logged in:
+- Be able to logout from the website
+- Access a user page with their information and their collection of games
+- Add a game to a personal collection of games from the game's detail page
+- Add a game to a personal collection from a user detail page
+- Remove a game from their collection from the game's details page
+- Remove a game to a personal collection from a user detail page
+
+## Stretch User Stories
+### As a user I want to:
+Either logged in or not:
+- Read reviews for each game
+- See likes for a game
+
+If not logged in:
+- Create an account/login using Google/etc.
+
+If logged in:
+- Write reviews to a game
+- Delete reviews from a game
+- Like a game
+- Remove a like from a game
+- Request for a new game to be added to the database (needs authorization from admin)
+
+## Wireframes
+
+## ERD
+
+## Installation Instructions
+
+## Known Issues
+
+## Major Hurdles
+
+## Future Goals & Implementation
+
+## API
+
+## Feasibility Study
+
+
+
 
 - **Scope:** What are you planning to build? What do you reasonably think you can implement in the time period?
 - **User Stories:** Who is your user? What features will your app have?
