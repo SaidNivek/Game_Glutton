@@ -1,7 +1,3 @@
-{% extends 'base.html' %}
-{% block content %}
-    <h1>Game Gluttons</h1>
-
     <section class="pt-5 pb-5">
         <div class="container">
             <div class="row">
@@ -29,8 +25,8 @@
                                         <div class="row">
                                 {% endif %}
                                 <div class="col-md-4 mb-3">
-                                    <div class="card d-sm-inline-block d-md-flex">
-                                        <img class="img-fluid" alt="{{game.name}}" src="{{game.thumbnail}}">
+                                    <div class="card d-none d-md-block">
+                                        <img class="img-fluid img-responsive" alt="{{game.name}}" src="{{game.thumbnail}}">
                                         <div class="card-body">
                                             <h4 class="card-title">{{game.name}}</h4>
                                             <p class="card-text">Current Rank: {{game.rank}}</p>
@@ -50,5 +46,4 @@
                 </div>
             </div>
         </div>
-    </section>  
-{% endblock %}
+    </section>
