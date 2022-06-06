@@ -22,7 +22,7 @@ def seed_trending_games():
             thumbnail = i.find('thumbnail').get('value'),
             year_published = i.find('yearpublished').get('value')
         )
-        # game.save()
+        game.save()
 
 # This function will seed the master database with games from the trending games pull request, BUT ONLY IF they have not yet been added to the master games list. If they have been added, they will be skipped.
 def seed_games():
