@@ -47,3 +47,35 @@
         </div>
     </div>
 </section>  
+
+
+
+{% for game in trending_games %}
+{% if forloop.counter == 1 %}                    
+    <div class="carousel-item active">
+        <div class="cards-wrapper">
+            <div class="card">
+{% elif forloop.counter|divisibleby:"3" %}
+            <div class="card">
+{% else %}
+            <div class="card d-none d-md-block">
+{% endif %}
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">{{game.rank}}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+    {% if forloop.counter|divisibleby:"3" %}
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="cards-wrapper">
+            
+    {% endif %}
+    {% if forloop.counter == 50 %}
+        </div>
+    </div>
+    {% endif %}
+{% endfor %}
