@@ -8,7 +8,11 @@ class Game(models.Model):
     img = models.CharField(max_length=250, blank = True, null = True)
     description = models.CharField(max_length=1000, blank = True, null = True)
     year_published = models.IntegerField(blank = True, null = True)
-
+    min_players = models.IntegerField(blank = True, null = True)
+    max_players = models.IntegerField(blank = True, null = True)
+    playtime = models.IntegerField(blank = True, null = True)
+    min_age = models.IntegerField(blank = True, null = True)
+    
     def __str__(self):
         return self.name
 

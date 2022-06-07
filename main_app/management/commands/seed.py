@@ -48,7 +48,11 @@ def seed_games():
                     thumbnail = the_game.find('thumbnail'),
                     year_published = the_game.find('yearpublished').get('value'),
                     img = the_game.find('image'),
-                    description = the_game.find('description')
+                    description = the_game.find('description'),
+                    min_players = the_game.find('minplayers').get('value'),
+                    max_players = the_game.find('maxplayers').get('value'),
+                    playtime = the_game.find('playingtime').get('value'),
+                    min_age = the_game.find('minage').get('value')
                 )
                 game.save()
 
