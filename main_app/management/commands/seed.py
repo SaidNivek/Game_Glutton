@@ -45,13 +45,14 @@ def seed_games():
                 game = Game(
                     bgg_id = bgg_id,
                     name = the_game.find('name').get('value'),
-                    thumbnail = the_game.find('thumbnail'),
+                    thumbnail = the_game.find('thumbnail').text,
                     year_published = the_game.find('yearpublished').get('value'),
-                    img = the_game.find('image'),
-                    description = the_game.find('description'),
+                    img = the_game.find('image').text,
+                    description = the_game.get('description'),
                     min_players = the_game.find('minplayers').get('value'),
                     max_players = the_game.find('maxplayers').get('value'),
-                    playtime = the_game.find('playingtime').get('value'),
+                    min_playtime = the_game.find('minplaytime').get('value'),
+                    max_playtime = the_game.find('maxplaytime').get('value'),
                     min_age = the_game.find('minage').get('value')
                 )
                 game.save()

@@ -10,7 +10,8 @@ class Game(models.Model):
     year_published = models.IntegerField(blank = True, null = True)
     min_players = models.IntegerField(blank = True, null = True)
     max_players = models.IntegerField(blank = True, null = True)
-    playtime = models.IntegerField(blank = True, null = True)
+    min_playtime = models.IntegerField(blank = True, null = True)
+    max_playtime = models.IntegerField(blank = True, null = True)
     min_age = models.IntegerField(blank = True, null = True)
     
     def __str__(self):

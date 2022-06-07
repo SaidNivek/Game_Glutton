@@ -44,3 +44,12 @@ body {
     height: 225px;
     overflow: hidden;
 }
+
+a {
+  color: whitesmoke;
+}
+
+a:hover {
+  color: #969696;
+  text-decoration: none;
+}
