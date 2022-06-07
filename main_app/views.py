@@ -1,13 +1,13 @@
+from multiprocessing import context
 from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse
 import xml.etree.ElementTree as ET
 from django.views.generic.base import TemplateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import DetailView
 from main_app.models import Game, TrendingGame
 import requests
-
-
-
 
 # Create views here.
 class Home(TemplateView):
@@ -18,13 +18,21 @@ class Home(TemplateView):
         context["trending_games"] = TrendingGame.objects.all()
         return context
 
+class About(TemplateView):
+    template_name = "about.html"
+
 class Seed(View):
     def get(self, request):
         return HttpResponse('Seed Database Home')
 
-class GameDetail(View):
-        def get(self, request):
-            return HttpResponse('Game Detail Home')
+class GameDetail(DetailView):
+    model = Game
+    template_name = "game_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["games"] = Game.objects.all()
+        return context   
 
 class SearchGame(TemplateView):
     template_name = "search_game.html"
@@ -45,5 +53,9 @@ class SearchGame(TemplateView):
                 year_published = i.find('yearpublished').get('value'),
                 img = i.find('image'),
                 description = i.find('description'),
+                min_players = the_game.find('minplayers').get('value'),
+                max_players = the_game.find('maxplayers').get('value'),
+                playtime = the_game.find('playingtime').get('value'),
+                min_age = the_game.find('minage').get('value')
             )
             game.save()
