@@ -20,7 +20,8 @@ def seed_trending_games():
             name = i.find('name').get('value'),
             rank = i.get('rank'),
             thumbnail = i.find('thumbnail').get('value'),
-            year_published = i.find('yearpublished').get('value')
+            year_published = i.find('yearpublished').get('value'),
+            slug = i.get('id')
         )
         game.save()
 
@@ -53,7 +54,8 @@ def seed_games():
                     max_players = the_game.find('maxplayers').get('value'),
                     min_playtime = the_game.find('minplaytime').get('value'),
                     max_playtime = the_game.find('maxplaytime').get('value'),
-                    min_age = the_game.find('minage').get('value')
+                    min_age = the_game.find('minage').get('value'),
+                    slug = bgg_id
                 )
                 game.save()
 

@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Game(models.Model):
@@ -13,9 +14,13 @@ class Game(models.Model):
     min_playtime = models.IntegerField(blank = True, null = True)
     max_playtime = models.IntegerField(blank = True, null = True)
     min_age = models.IntegerField(blank = True, null = True)
+    slug = models.SlugField(blank = True, null = True)
     
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("game_detail", kwargs={"slug:": self.slug})
 
 class TrendingGame(models.Model):
     name = models.CharField(max_length=100, blank = True, null = True)
@@ -23,6 +28,10 @@ class TrendingGame(models.Model):
     rank = models.IntegerField(blank = True, null = True)
     thumbnail = models.CharField(max_length=250, blank = True, null = True)
     year_published = models.IntegerField(blank = True, null = True)
+    slug = models.SlugField(blank = True, null = True)
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("game_detail", kwargs={"slug:": self.slug})

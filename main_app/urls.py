@@ -6,6 +6,6 @@ from django.contrib import admin
 urlpatterns = [
     path('', views.Home.as_view(), name="home"),
     path('search/game/', views.SearchGame.as_view(), name ="search_game"),
-    path('games/<int:pk>/', views.GameDetail.as_view(), name="game_detail"),
+    path('games/<slug:slug>/', views.GameDetail.as_view(), name="game_detail"),
     path('about/', views.About.as_view(), name="about"),
 ]

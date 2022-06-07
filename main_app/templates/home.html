@@ -10,11 +10,11 @@
                 {% if forloop.counter == 1 %}                    
                     <div class="carousel-item active">
                         <div class="cards-wrapper">
-                            <div class="card d-sm-block">
+                            <a href="{% url 'game_detail' game.slug %}"><div class="card d-sm-block">
                 {% elif forloop.counter0|divisibleby:"3" %}
-                    <div class="card">
+                    <a href="{% url 'game_detail' game.slug %}"><div class="card">
                 {% else %}
-                    <div class="card d-none d-md-block">
+                    <a href="{% url 'game_detail' game.slug %}"><div class="card d-none d-md-block">
                 {% endif %}
                 <div class="carousel-img-div">
 
@@ -23,8 +23,9 @@
                     <div class="card-body">
                         <p class="card-text">Rank: {{game.rank}}</p>
                         <h5 class="card-title">{{game.name}}</h5>
+                        <p>{{game.slug}}</p>
                     </div>
-                </div>
+                </div></a>
                 {% if forloop.counter|divisibleby:"3" %}
                     </div>
                 </div>
