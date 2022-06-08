@@ -45,7 +45,7 @@ class SearchGame(TemplateView):
         games = ET.fromstring(req.content)
 
         for i in games.findall('item'):
-            game = Game(
+            the_game = Game(
                 bgg_id = i.get('id'),
                 name = i.find('name').get('value'),
                 rank = i.get('rank'),
@@ -58,4 +58,4 @@ class SearchGame(TemplateView):
                 playtime = the_game.find('playingtime').get('value'),
                 min_age = the_game.find('minage').get('value')
             )
-            game.save()
+            the_game.save()
