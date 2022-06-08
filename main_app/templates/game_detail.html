@@ -11,14 +11,15 @@
         </div>
         <div class="game-detail-info">
             <div class="d-md-flex justify-content-around">
-                <p>Players: {{game.min_players}} - {{game.max_players}}</p>
-                <p>Playing Time: {{game.min_playtime}} - {{game.max_playtime}}</p>
-                <p>Suggested Minimum Age: {{game.min_age}}</p>
+                <h5>Players: {{game.min_players}} - {{game.max_players}}</h5>
+                <h5>Playing Time: {{game.min_playtime}} - {{game.max_playtime}} minutes</h5>
+                <h5>Suggested Minimum Age: {{game.min_age}}</h5>
             </div>
             {% if game.description == None %}
                 <p>Description: There is currently no description for this game.</p>
             {% else %}
-                <p>Description: {{game.description}}</p>
+                <h4>Description</h4>
+                <p>{{game.description}}</p>
             {% endif %}
         </div>
     </div>
