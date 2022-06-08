@@ -49,7 +49,7 @@ def seed_games():
                     thumbnail = the_game.find('thumbnail').text,
                     year_published = the_game.find('yearpublished').get('value'),
                     img = the_game.find('image').text,
-                    description = the_game.find('description').text.replace('&#10;', '<br>'),
+                    description = the_game.find('description').text.replace('&#10;', '\n'),
                     min_players = the_game.find('minplayers').get('value'),
                     max_players = the_game.find('maxplayers').get('value'),
                     min_playtime = the_game.find('minplaytime').get('value'),
@@ -62,6 +62,7 @@ def seed_games():
 # This function will delete all of the games from the maon_app_trendinggames DB to ensure there are no duplicates when the database is seeded
 def clear_trending_games_data():
   TrendingGame.objects.all().delete()
+#   Game.objects.all().delete()
 
 # This function extends the BaseCommand Class and allows for python3 manage.py seed to be run, which will delete the DB and then seed it with the top 50 top trending games
 class Command(BaseCommand):

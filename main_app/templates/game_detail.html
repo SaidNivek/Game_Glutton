@@ -19,7 +19,7 @@
                 <p class="text-left">Description: There is currently no description for this game.</p>
             {% else %}
                 <h4 class="text-left">Description</h4>
-                <p class="text-left">{{game.description}}</p>
+                <p class="text-left">{{game.description|linebreaks}}</p>
             {% endif %}
         </div>
     </div>
