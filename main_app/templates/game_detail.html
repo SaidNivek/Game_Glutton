@@ -4,22 +4,22 @@
     <div class="d-md-block text-center">
         <div>
             <img class="img-fluid game-detail-image" src="{{game.img}}" alt="{{game.name}}">
-            <div class="game-detail-headings">
+            <div class="game-detail-headings d-md-flex justify-content-center">
                 <h1 class="text-center">{{game.name}}</h1>
-                <h3>({{game.year_published}})</h3>
             </div>
         </div>
         <div class="game-detail-info">
             <div class="d-md-flex justify-content-around">
-                <h5>Players: {{game.min_players}} - {{game.max_players}}</h5>
-                <h5>Playing Time: {{game.min_playtime}} - {{game.max_playtime}} minutes</h5>
-                <h5>Suggested Minimum Age: {{game.min_age}}</h5>
+                <h5><b>Players:</b> {{game.min_players}} - {{game.max_players}}</h5>
+                <h5><b>Playing Time:</b> {{game.min_playtime}} - {{game.max_playtime}} minutes</h5>
+                <h5><b>Suggested Minimum Age:</b> {{game.min_age}}</h5>
+                <h5><b>Released:</b> {{game.year_published}}</h5>
             </div>
             {% if game.description == None %}
-                <p>Description: There is currently no description for this game.</p>
+                <p class="text-left">Description: There is currently no description for this game.</p>
             {% else %}
-                <h4>Description</h4>
-                <p>{{game.description}}</p>
+                <h4 class="text-left">Description</h4>
+                <p class="text-left">{{game.description}}</p>
             {% endif %}
         </div>
     </div>

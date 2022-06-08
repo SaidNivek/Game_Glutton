@@ -49,7 +49,7 @@ def seed_games():
                     thumbnail = the_game.find('thumbnail').text,
                     year_published = the_game.find('yearpublished').get('value'),
                     img = the_game.find('image').text,
-                    description = the_game.find('description').text, # .replace('&#10;', ' ')
+                    description = the_game.find('description').text.replace('&#10;', '<br>'),
                     min_players = the_game.find('minplayers').get('value'),
                     max_players = the_game.find('maxplayers').get('value'),
                     min_playtime = the_game.find('minplaytime').get('value'),
