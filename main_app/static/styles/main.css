@@ -7,39 +7,37 @@ body {
     display: flex;
     justify-content: center;
   }
-  .card img {
-    max-width: auto;
-    max-height: 100%;
-  }
-  .card {
-    margin: 0 0.5em;
-    border: none;
-    width: 90vw;
-    color: whitesmoke;
-    background-color: #363636;
-  }
-  .carousel-inner {
-    padding: 1em;
-  }
-  .carousel-control-prev,
-  .carousel-control-next {
-    background-color: #e1e1e1;
-    width: 5vh;
-    height: 5vh;
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-@media (min-width: 768px) {
-    .card img {
-        height: 11em;
-    }
 
-    .card {
-        width: 20vw;
-    }
+.card img {
+  max-width: auto;
+  max-height: 100%;
 }
 
+.card {
+  margin: 0 0.5em;
+  border: none;
+  width: 90vw;
+  color: whitesmoke;
+  background-color: #363636;
+}
+
+.carousel-inner {
+  padding: 1em;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: #e1e1e1;
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.detail-page-image {
+  max-width: 35vw;
+  max-height: 40vh;
+}
 .carousel-img-div {
     height: 225px;
     overflow: hidden;
@@ -52,4 +50,19 @@ a {
 a:hover {
   color: #969696;
   text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .card img {
+      height: 11em;
+  }
+
+  .card {
+      width: 20vw;
+  }
+
+  .detail-page-image {
+    max-width: 40vw;
+    max-height: auto;
+  }
 }

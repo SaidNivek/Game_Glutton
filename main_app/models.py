@@ -7,13 +7,14 @@ class Game(models.Model):
     bgg_id = models.IntegerField(blank = True, null = True)
     thumbnail = models.CharField(max_length=250, blank = True, null = True)
     img = models.CharField(max_length=250, blank = True, null = True)
-    description = models.CharField(max_length=1000, blank = True, null = True)
+    description = models.CharField(max_length=10000, blank = True, null = True)
     year_published = models.IntegerField(blank = True, null = True)
     min_players = models.IntegerField(blank = True, null = True)
     max_players = models.IntegerField(blank = True, null = True)
     min_playtime = models.IntegerField(blank = True, null = True)
     max_playtime = models.IntegerField(blank = True, null = True)
     min_age = models.IntegerField(blank = True, null = True)
+    # Needed for Game and TrendingGame to have the same URL for game_Detail views
     slug = models.SlugField(blank = True, null = True)
     
     def __str__(self):
@@ -28,6 +29,7 @@ class TrendingGame(models.Model):
     rank = models.IntegerField(blank = True, null = True)
     thumbnail = models.CharField(max_length=250, blank = True, null = True)
     year_published = models.IntegerField(blank = True, null = True)
+    # Needed for Game and TrendingGame to have the same URL for game_Detail views
     slug = models.SlugField(blank = True, null = True)
 
     def __str__(self):

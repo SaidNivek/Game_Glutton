@@ -1,7 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1 class="text-center">{{game.name}}</h1>
-    <img src="{{game.thumbnail}}">
+<div class="container">
+    <div class="d-md-block text-center">
+        <div>
+            <img class="img-fluid detail-page-image" src="{{game.img}}" alt="{{game.name}}">
+            <h1 class="text-center">{{game.name}}</h1>
+            <h3>({{game.year_published}})</h3>
+        </div>
+        <div class="d-md-flex justify-content-around">
+            <p>Players: {{game.min_players}} - {{game.max_players}}</p>
+            <p>Playing Time: {{game.min_playtime}} - {{game.max_playtime}}</p>
+            <p>Suggested Minimum Age: {{game.min_age}}</p>
+        </div>
+        {% if game.description == None %}
+            <p>Description: There is currently no description for this game.</p>
+        {% else %}
+            <p>Description: {{game.description}}</p>
+        {% endif %}
+    </div>
+</div>
 
 
 {% endblock %}
