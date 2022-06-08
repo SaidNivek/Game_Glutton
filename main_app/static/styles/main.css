@@ -21,6 +21,10 @@ body {
   background-color: #363636;
 }
 
+.card:hover {
+  box-shadow: 0 0 10px 5px #00564d;
+}
+
 .carousel-inner {
   padding: 1em;
 }
@@ -47,7 +51,6 @@ body {
   background-color: #363636;
 }
 
-
 .carousel-img-div {
     height: 225px;
     overflow: hidden;
@@ -60,6 +63,7 @@ a {
 a:hover {
   color: #969696;
   text-decoration: none;
+  
 }
 
 @media (min-width: 768px) {

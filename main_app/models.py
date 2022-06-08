@@ -37,3 +37,10 @@ class TrendingGame(models.Model):
 
     def get_absolute_url(self):
         return reverse("game_detail", kwargs={"slug:": self.slug})
+
+class Collection(models.Model):
+    collection_name = models.CharField(max_length=150)
+    games = models.ManyToManyField(Game)
+
+    def __str__(self):
+        return self.collection_name
