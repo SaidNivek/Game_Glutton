@@ -34,10 +34,20 @@ body {
   top: 50%;
   transform: translateY(-50%);
 }
-.detail-page-image {
+.game-detail-image {
   max-width: 35vw;
   max-height: 40vh;
 }
+
+.game-detail-headings {
+  background-color: #363636;
+}
+
+.game-detail-info {
+  background-color: #363636;
+}
+
+
 .carousel-img-div {
     height: 225px;
     overflow: hidden;
@@ -61,7 +71,7 @@ a:hover {
       width: 20vw;
   }
 
-  .detail-page-image {
+  .game-detail-image {
     max-width: 40vw;
     max-height: auto;
   }
