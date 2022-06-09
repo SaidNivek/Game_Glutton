@@ -40,12 +40,6 @@ class SearchGame(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get("name") 
-        # if name != None:
-        #     context["games"] = Game.objects.filter(name__icontains=name)
-        #     context["header"] = f"Searching for {name}"
-        # else:
-        #     context["header"] = "Search for a game"
-        # return context
 
         if name != None:
             if len(name):
