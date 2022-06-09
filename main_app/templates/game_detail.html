@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="d-md-block">
+        <div class="text-center">
+            <img class="img-fluid game-detail-image" src="{{game.img}}" alt="{{game.name}}">
+            <div class="game-detail-headings d-md-flex justify-content-center">
+                <h1 class="text-center">{{game.name}}</h1>
+            </div>
+        </div>
+        <div class="game-detail-info">
+            <div class="d-md-flex justify-content-around">
+                <h5><b>Players:</b> {{game.min_players}} - {{game.max_players}}</h5>
+                <h5><b>Playing Time:</b> {{game.min_playtime}} - {{game.max_playtime}} minutes</h5>
+                <h5><b>Suggested Minimum Age:</b> {{game.min_age}}</h5>
+                <h5><b>Released:</b> {{game.year_published}}</h5>
+            </div>
+            {% if game.description == None %}
+                <p class="text-left">Description: There is currently no description for this game.</p>
+            {% else %}
+                <h4 class="text-left">Description</h4>
+                <p class="text-left">{{game.description|linebreaks}}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

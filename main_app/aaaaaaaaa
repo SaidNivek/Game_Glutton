@@ -1,0 +1,81 @@
+<section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h3 class="mb-3">Trending Games!</h3>
+            </div>
+            <!-- Carousel bgeins here -->
+            <div class="col-6 text-right">
+                <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                    <!-- Where the images in the carousel start -->
+                    <div class="carousel-inner">
+                        <!-- Where the rows begin, need to start with active to have carousel spin -->
+                        {% for game in trending_games %}
+                            <!-- If it's the first game, set the carousel to active in order to auto-spin -->
+                            {% if forloop.counter == 1 %}
+                                <div class="carousel-item active">
+                                    <div class="row">
+                            {% endif %}
+                            <div class="col-md-3 mb-3">
+                                <div class="card d-sm-inline-block d-md-flex">
+                                    <img class="img-fluid" alt="{{game.name}}" src="{{game.thumbnail}}">
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{game.name}}</h4>
+                                        <p class="card-text">Current Rank: {{game.rank}}</p>
+                                    </div>
+                                </div>
+                            </div>                            
+                            <!-- If divisibile by 3, start and end a row -->
+                            {% if forloop.counter|divisibleby:"4" %}    
+                                    </div>
+                                </div>
+                                <div class="carousel-item ">
+                                    <div class="row">
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>                                  
+            </div>
+        </div>
+    </div>
+</section>  
+
+
+
+{% for game in trending_games %}
+{% if forloop.counter == 1 %}                    
+    <div class="carousel-item active">
+        <div class="cards-wrapper">
+            <div class="card">
+{% elif forloop.counter|divisibleby:"3" %}
+            <div class="card">
+{% else %}
+            <div class="card d-none d-md-block">
+{% endif %}
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">{{game.rank}}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+    {% if forloop.counter|divisibleby:"3" %}
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="cards-wrapper">
+            
+    {% endif %}
+    {% if forloop.counter == 50 %}
+        </div>
+    </div>
+    {% endif %}
+{% endfor %}

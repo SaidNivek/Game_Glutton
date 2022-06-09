@@ -1,54 +1,49 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Game Gluttons</h1>
+    <h1 class="text-center">Trending Games</h1>
 
-    <section class="pt-5 pb-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-6">
-                    <h3 class="mb-3">Trending Games!</h3>
+    <!-- Carousel starts here -->
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <!-- This is where the images begin -->
+            {% for game in trending_games %}
+                {% if forloop.counter == 1 %}                    
+                    <div class="carousel-item active">
+                        <div class="cards-wrapper">
+                            <a href="{% url 'game_detail' game.slug %}"><div class="card d-sm-block">
+                {% elif forloop.counter0|divisibleby:"3" %}
+                    <a href="{% url 'game_detail' game.slug %}"><div class="card">
+                {% else %}
+                    <a href="{% url 'game_detail' game.slug %}"><div class="card d-none d-md-block">
+                {% endif %}
+                <div class="carousel-img-div">
+
+                    <img src="{{game.thumbnail}}" class="card-img-top" alt="{{game.name}}">
                 </div>
-                <!-- Carousel bgeins here -->
-                <div class="col-6 text-right">
-                    <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-                        <i class="fa fa-arrow-left"></i>
-                    </a>
-                    <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
-                        <i class="fa fa-arrow-right"></i>
-                    </a>
+                    <div class="card-body">
+                        <p class="card-text">Rank: {{game.rank}}</p>
+                        <h5 class="card-title">{{game.name}}</h5>
+                    </div>
+                </div></a>
+                {% if forloop.counter|divisibleby:"3" %}
+                    </div>
                 </div>
-                <div class="col-12">
-                    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-                        <!-- Where the images in the carousel start -->
-                        <div class="carousel-inner">
-                            <!-- Where the rows begin, need to start with active to have carousel spin -->
-                            {% for game in trending_games %}
-                                <!-- If it's the first game, set the carousel to active in order to auto-spin -->
-                                {% if forloop.counter == 1 %}
-                                    <div class="carousel-item active">
-                                        <div class="row">
-                                {% endif %}
-                                <div class="col-md-4 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" alt="{{game.name}}" src="{{game.thumbnail}}">
-                                        <div class="card-body">
-                                            <h4 class="card-title">{{game.name}}</h4>
-                                            <p class="card-text">Current Rank: {{game.rank}}</p>
-                                        </div>
-                                    </div>
-                                </div>                            
-                                <!-- If divisibile by 3, start and end a row -->
-                                {% if forloop.counter|divisibleby:"3" %}    
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item ">
-                                        <div class="row">
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                    </div>                                  
+                <div class="carousel-item">
+                    <div class="cards-wrapper">
+                {% elif forloop.counter == 50 %}
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
+                {% endif %}
+            {% endfor %}
+            <!-- The carousel images end above this line -->
+        </div> 
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div> 
 {% endblock %}
