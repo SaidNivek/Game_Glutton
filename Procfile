@@ -1,1 +1,1 @@
-web: gunicorn game_gluttons.wsgi
+web: gunicorn game_glutton.wsgi
