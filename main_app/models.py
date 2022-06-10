@@ -46,6 +46,7 @@ class TrendingGame(models.Model):
         ordering = ['rank']
 
 class Collection(models.Model):
+    name = models.CharField(max_length=100, blank = True, null = True)
     games = models.ManyToManyField(Game)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
@@ -53,6 +54,7 @@ class Collection(models.Model):
         return self.user.username
 
 class Wishlist(models.Model):
+    name = models.CharField(max_length=100, blank = True, null = True)
     games = models.ManyToManyField(Game)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
