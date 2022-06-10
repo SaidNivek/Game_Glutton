@@ -25,9 +25,22 @@
     <!-- <div class="navbar-menu navbar-start">
       <a class="navbar-item" href="/about">About</a>
     </div> -->
+    {% if user.is_authenticated %}
+    <span class="navbar-item">Welcome, {{user.username}}</span>
+    {% endif %}
     <div class="navbar-menu navbar-end">
-        <a class="navbar-item" href="/about"><button class="btn btn-light">About</button></a>
-        <a class="navbar-item" href="/search"><button class="btn btn-light">Search</button></a>
+      {% if user.is_authenticated %}
+      <a class="navbar-item" href="/about"><button class="btn btn-light">About</button></a>
+      <a class="navbar-item" href="/search"><button class="btn btn-light">Search</button></a>
+      <a class="navbar-item" href="{% url 'logout' %}"><button class="btn btn-warning">Logout</button></a>
+    </div>
+    {% else %}
+    <div class="navbar-menu navbar-end">
+      <a class="navbar-item" href="/about"><button class="btn btn-light">About</button></a>
+      <a class="navbar-item" href="/search"><button class="btn btn-light">Search</button></a>
+      <a class="navbar-item" href="{% url 'login' %}"><button class="btn btn-primary">Log In</button></a>
+    </div>
+    {% endif %}
     </div>
   </nav>
       {% block content%}

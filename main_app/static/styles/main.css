@@ -9,6 +9,15 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.btn-primary {
+  background-color: #00564d;
+  border-color: #363636;
+}
+.btn:hover {
+  background-color: #363636;
+  border-color: #00564d;
+}
+
 .cards-wrapper {
     display: flex;
     justify-content: center;
