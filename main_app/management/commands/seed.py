@@ -46,7 +46,7 @@ def seed_games():
                 game = Game(
                     bgg_id = bgg_id,
                     name = the_game.find('name').get('value'),
-                    thumbnail = the_game.find('thumbnail').text,
+                    thumbnail = the_game.find('thumbnail').get('value'),
                     year_published = the_game.find('yearpublished').get('value'),
                     img = the_game.find('image').text,
                     description = the_game.find('description').text.replace('&#10;', '\n'),
@@ -63,7 +63,7 @@ def seed_games():
 def clear_trending_games_data():
   TrendingGame.objects.all().delete()
   # This is used to conditionally delete all the games from the database if needed during testing/implementation
-  Game.objects.all().delete()
+#   Game.objects.all().delete()
 
 # This function extends the BaseCommand Class and allows for python3 manage.py seed to be run, which will delete the DB and then seed it with the top 50 top trending games
 class Command(BaseCommand):

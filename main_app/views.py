@@ -10,6 +10,7 @@ from main_app.models import Game, TrendingGame
 import requests
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.http import Http404
 
 # Create views here.
 class Home(TemplateView):
@@ -73,12 +74,27 @@ class SearchGame(TemplateView):
                     req = requests.get(url)
                     single_game = ET.fromstring(req.content)
                     for the_game in single_game.findall('item'):
+                    # Check to see if the game has an element of None
+                    # If it does, give it a default error value to not break the system
+                        my_image = the_game.find('image')
+                        if my_image == None:
+                            my_image = 'https://bitsofco.de/content/images/2018/12/broken-1.png'
+                        else:
+                            my_image = the_game.find('image').text
+                        # Check to see if the game has an element of None
+                        # If it does, give it a default error value to not break the system
+                        my_thumbnail = the_game.find('thumbnail')
+                        if my_thumbnail == None:
+                            my_thumbnail = 'https://bitsofco.de/content/images/2018/12/broken-1.png'
+                        else:
+                            my_thumbnail = the_game.find('thumbnail').text
+                        
                         game = Game(
                             bgg_id = bgg_id,
                             name = the_game.find('name').get('value'),
-                            thumbnail = the_game.find('thumbnail').text,
                             year_published = the_game.find('yearpublished').get('value'),
-                            img = the_game.find('image').text,
+                            thumbnail = my_thumbnail,                            
+                            img = my_image,
                             description = the_game.find('description').text.replace('&#10;', '\n'),
                             min_players = the_game.get('minplayers'),
                             max_players = the_game.get('maxplayers'),
