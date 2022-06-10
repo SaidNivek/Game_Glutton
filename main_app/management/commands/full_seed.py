@@ -62,6 +62,8 @@ def seed_games():
 # This function will delete all of the games from the maon_app_trendinggames DB to ensure there are no duplicates when the database is seeded
 def clear_trending_games_data():
   TrendingGame.objects.all().delete()
+  # This is used to conditionally delete all the games from the database if needed during testing/implementation
+  Game.objects.all().delete()
 
 # This function extends the BaseCommand Class and allows for python3 manage.py seed to be run, which will delete the DB and then seed it with the top 50 top trending games
 class Command(BaseCommand):
