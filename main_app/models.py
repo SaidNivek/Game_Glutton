@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Game(models.Model):
@@ -22,6 +23,9 @@ class Game(models.Model):
 
     def get_absolute_url(self):
         return reverse("game_detail", kwargs={"slug:": self.slug})
+    
+    class Meta:
+        ordering = ['bgg_id']
 
 class TrendingGame(models.Model):
     name = models.CharField(max_length=100, blank = True, null = True)
@@ -38,9 +42,19 @@ class TrendingGame(models.Model):
     def get_absolute_url(self):
         return reverse("game_detail", kwargs={"slug:": self.slug})
 
+    class Meta:
+        ordering = ['rank']
+
 class Collection(models.Model):
-    collection_name = models.CharField(max_length=150)
     games = models.ManyToManyField(Game)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
     def __str__(self):
-        return self.collection_name
+        return self.user.username
+
+class Wishlist(models.Model):
+    games = models.ManyToManyField(Game)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+
+    def __str__(self):
+        return self.user.username

@@ -1,4 +1,6 @@
 {% extends 'base.html' %} 
+
+{% block title %} Search {% endblock %}
 {% block content %}
 
 <div class="container">
@@ -17,7 +19,7 @@
     <a class="button is-dark" href="{% url 'search' %}">Clear Search</a>
     <p>{{ footer }}</p>
   </form>
-  <div class="gallery d-md-flex flex-wrap">
+  <div class="gallery d-md-flex flex-wrap justify-content-center">
     {% for game in games %}
     <a href="{% url 'game_detail' game.slug %}">
       <div class="card text-center">
@@ -31,12 +33,6 @@
         </div>
       </div>
     </a>
-    {% empty %}
-    <article class="message">
-      <div class="message-header">
-        <p>No Games Found. Try Again?</p>
-      </div>
-    </article>
     {% endfor %}
   </div>
   
