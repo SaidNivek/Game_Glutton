@@ -1,3 +1,7 @@
+* {
+  border-radius: 6px;
+}
+
 body {
     color: whitesmoke;
     background-color: black;
@@ -16,7 +20,7 @@ body {
 }
 
 .card {
-  margin: 0 0.5em;
+  margin: .25em;
   border: none;
   width: 90vw;
   color: whitesmoke;
@@ -45,12 +49,10 @@ body {
   max-height: 40vh;
 }
 
-.game-detail-headings {
+.game-detail-info, .game-detail-headings {
   background-color: #363636;
-}
-
-.game-detail-info {
-  background-color: #363636;
+  padding: 6px;
+  margin: 6px;
 }
 
 .carousel-img-div {

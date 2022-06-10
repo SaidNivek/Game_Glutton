@@ -53,8 +53,8 @@ class SearchGame(TemplateView):
                         games.remove(i)
                 # Sort the remaining games by their year published date, which will be used to show the data in chronological order by release
                 games[:] = sorted(games, key=lambda child: (child.tag,child.find('yearpublished').get('value')))
-                # Only add the first 10 released games to the database and then show those as context
-                for i in games.findall('item')[0:10]:
+                # Only add the first 20 released games to the database and then show those as context
+                for i in games.findall('item')[0:20]:
                     bgg_id = i.get('id') 
                     # Use the bgg_id to check to see if it exists in our static games database
                     checkID = Game.objects.filter(bgg_id__icontains=bgg_id)
@@ -75,11 +75,11 @@ class SearchGame(TemplateView):
                                 year_published = the_game.find('yearpublished').get('value'),
                                 img = the_game.find('image').text,
                                 description = the_game.find('description').text.replace('&#10;', '\n'),
-                                min_players = the_game.find('minplayers').get('value'),
-                                max_players = the_game.find('maxplayers').get('value'),
-                                min_playtime = the_game.find('minplaytime').get('value'),
-                                max_playtime = the_game.find('maxplaytime').get('value'),
-                                min_age = the_game.find('minage').get('value'),
+                                min_players = the_game.get('minplayers'),
+                                max_players = the_game.get('maxplayers'),
+                                min_playtime = the_game.get('minplaytime'),
+                                max_playtime = the_game.get('maxplaytime'),
+                                min_age = the_game.get('minage'),
                                 slug = bgg_id
                             )
                             game.save()

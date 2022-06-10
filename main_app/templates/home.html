@@ -10,7 +10,7 @@
                 {% if forloop.counter == 1 %}                    
                     <div class="carousel-item active">
                         <div class="cards-wrapper">
-                            <a href="{% url 'game_detail' game.slug %}"><div class="card d-sm-block">
+                            <a href="{% url 'game_detail' game.slug %}"><div class="card d-md-block">
                 {% elif forloop.counter0|divisibleby:"3" %}
                     <a href="{% url 'game_detail' game.slug %}"><div class="card">
                 {% else %}
