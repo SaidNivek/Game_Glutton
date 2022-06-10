@@ -76,9 +76,9 @@ class SearchGame(TemplateView):
                         game = Game(
                             bgg_id = bgg_id,
                             name = the_game.find('name').get('value'),
-                            thumbnail = the_game.find('thumbnail').text,
+                            thumbnail = the_game.get('thumbnail'),
                             year_published = the_game.find('yearpublished').get('value'),
-                            img = the_game.find('image').text,
+                            img = the_game.get('image'),
                             description = the_game.find('description').text.replace('&#10;', '\n'),
                             min_players = the_game.get('minplayers'),
                             max_players = the_game.get('maxplayers'),
