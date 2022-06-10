@@ -9,6 +9,7 @@ django-heroku = "*"
 psycopg2-binary = "*"
 django-on-heroku = "*"
 gunicorn = "*"
+requests = "*"
 
 [dev-packages]
 
