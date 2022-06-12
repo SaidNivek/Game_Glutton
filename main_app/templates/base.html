@@ -22,9 +22,7 @@
             <span aria-hidden="true"></span>
         </a>
     </div>
-    <!-- <div class="navbar-menu navbar-start">
-      <a class="navbar-item" href="/about">About</a>
-    </div> -->
+
     {% if user.is_authenticated %}
     <span class="navbar-item">Welcome, {{user.username}}</span>
     {% endif %}
@@ -45,9 +43,9 @@
     {% endif %}
     </div>
   </nav>
+  
       {% block content%}
       {% endblock %}  
-
 
     <script src = "{% static 'scripts/main.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
