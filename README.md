@@ -19,10 +19,8 @@ If not logged in:
 If logged in:
 - Be able to logout from the website
 - Access a user page with their information and their collection of games
-- Add a game to a personal collection of games from the game's detail page
-- Add a game to a personal collection from a user detail page
-- Remove a game from their collection from the game's details page
-- Remove a game to a personal collection from a user detail page
+- Update their user profile
+- Delete their user profile
 
 ## Stretch User Stories
 ### As a user I want to:
@@ -34,6 +32,10 @@ If not logged in:
 - Create an account/login using Google/etc.
 
 If logged in:
+- Add a game to a personal collection of games from the game's detail page
+- Add a game to a personal collection from a user detail page
+- Remove a game from their collection from the game's details page
+- Remove a game to a personal collection from a user detail page
 - Write reviews to a game
 - Delete reviews from a game
 - Like a game
