@@ -52,6 +52,11 @@ class UserUpdate(UpdateView):
     def get_success_url(self):
         return reverse('user_profile', kwargs={'pk': self.object.pk})
 
+class UserDelete(DeleteView):
+    model = User
+    template_name = "user_delete_confirmation.html"
+    success_url = "/flowers/"
+
 class SearchGame(TemplateView):
     template_name = "search.html"
 

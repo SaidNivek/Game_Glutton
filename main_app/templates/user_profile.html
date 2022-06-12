@@ -6,7 +6,12 @@
 
     <h1>{{user.username}}'s' Profile Page</h1>
     <div class="buttons">
-        <a class="btn btn-light" href="{% url 'user_profile' user.pk %}" class="button is-info"> Update User
+        <a class="btn btn-light" href="{% url 'user_update' user.pk %}" class="button is-info"> Update Profile
+            <span class="icon">
+                <i class="fas fa-edit"></i>
+            </span>
+        </a>
+        <a class="btn btn-danger" href="{% url 'user_delete' user.pk %}" class="button is-info"> Delete Profile
             <span class="icon">
                 <i class="fas fa-edit"></i>
             </span>

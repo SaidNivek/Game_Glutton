@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+    <h1 class="title pt-5">Are you sure you want to Delete {{flower.name}}?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="buttons">
+            <!-- confirm artist delete -->
+            <input class="btn btn-danger" type="submit" value="Confirm" />
+            <!-- Redirect back to detail on cancel -->
+            <a class="button is-primary" href="{% url 'user_profile' user.pk %}">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
