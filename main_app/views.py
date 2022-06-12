@@ -55,7 +55,7 @@ class UserUpdate(UpdateView):
 class UserDelete(DeleteView):
     model = User
     template_name = "user_delete_confirmation.html"
-    success_url = ""
+    success_url = "/"
 
 class SearchGame(TemplateView):
     template_name = "search.html"
