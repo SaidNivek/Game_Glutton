@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
-from main_app.models import Game, TrendingGame
+from main_app.models import Game, TrendingGame, Wishlist, Collection
 import requests
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -24,10 +24,6 @@ class Home(TemplateView):
 class About(TemplateView):
     template_name = "about.html"
 
-class Seed(View):
-    def get(self, request):
-        return HttpResponse('Seed Database Home')
-
 class GameDetail(DetailView):
     model = Game
     template_name = "game_detail.html"
@@ -36,6 +32,17 @@ class GameDetail(DetailView):
         context = super().get_context_data(**kwargs)
         context["games"] = Game.objects.all()
         return context   
+
+class UserDetail(TemplateView):
+    template_name = "user_profile.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["wishlists"] = Wishlist.objects.all()
+        context["collections"] = Collection.objects.all()
+        return context   
+
+
 
 class SearchGame(TemplateView):
     template_name = "search.html"

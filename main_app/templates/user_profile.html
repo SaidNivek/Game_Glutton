@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Test User Profile Page</h1>
+
+<h2>Username:</h2>
+<p>{{user.username}}</p>
+
+<h2>{{user.username}}'s Collections:</h2>
+{% for collection in collections %}
+<p>{{collection.name}}</p>
+{% endfor %}
+
+<h2>{{user.username}}'s Wishlists:</h2>
+{% for wishlist in wishlists %}
+<p>{{wishlist.name}}</p>
+{%endfor %}
+
+{% endblock %}

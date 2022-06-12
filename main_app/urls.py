@@ -10,5 +10,6 @@ urlpatterns = [
     # This allows the trending games and specific games to have the same game_detail page, regardless of their ID number in the DB 
     path('games/<slug:slug>/', views.GameDetail.as_view(), name="game_detail"),
     path('about/', views.About.as_view(), name="about"),
-    path('accounts/signup/', views.Signup.as_view(), name="signup")
+    path('accounts/signup/', views.Signup.as_view(), name="signup"),
+    path('user/<int:pk>/', views.UserDetail.as_view(), name="user_profile"),
 ]
