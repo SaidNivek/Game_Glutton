@@ -4,6 +4,22 @@
 This site is called Game Gluttons. It is an app used to explore popular board games and store a collection of your own board games. Users will be able to login/sign-up and save games to their collection. If not signed up, they will be able to browse popular games and see descriptions of them.  It's main goal is to recreate some of the functionality of boardgamegeeks.com. 
 I will be using Django/PostgreSQL to create this app, utilizing its login/signup functionality for user authentication.
 
+## Link to App
+https://game-gluttons.herokuapp.com/
+
+## Installation Instructions
+- To download the source code, go here: https://github.com/SaidNivek/game_gluttons 
+- Fork the code to your own GitHub page. 
+- Clone the repo to your local environment. 
+- Install all dependencies. -- Note: Ensure that your environment is able to host a virtual environment and utilize Django for the code to work properly
+- In your terminal, ```python3 manage.py runserver```
+- Go to your web browser and go to ```localhost:8000```
+
+## Technologies Used
+- Django
+- Python
+- API calls (XML responses)
+
 ## MVP User Stories
 ### As a user I want to:
 Either logged in or not:
@@ -43,7 +59,27 @@ If logged in:
 - Request for a new game to be added to the database (needs authorization from admin)
 - Set a favorite game within your user profile
 
-## Wireframes
+## Known Issues
+There are currently no known issues with the most up-to-date build.
+
+## Major Hurdles
+- The XML API was quite difficult to work with and utilize effectively, particularly when it came to the Search functionality of the game
+- The Search functionality was difficult, as it requires several API calls with multiple checks and conditionals to ensure the most useful and usable data was returned and stored in the database
+- Using the database for collections and wishlists proved to be too difficult for this iteration of the app, due to the way the databases are set up, along with the ID used from the API, making connecting the databases by primary key not as useful/feasible at this time
+
+## Future Goals & Implementation
+- I would like to tackle adding wishlists and game collections by users to their profiles.  This would require some thought as to how to incorporate the current structure of the database or to refactor the databases into something else with more readily usable primary keys.
+- Favoriting games that you own or showcasing your current favorite game on your profile page.
+- Allowing users to look at wishlists and collections from other users.
+- Reviews and ratings by users for each game.
+
+## API
+I will use the Board Game Geek API to seed my own database with data. The API is free to use and does not require any authentication. It's docs can be found [here](https://boardgamegeek.com/wiki/page/BGG_XML_API2).
+
+## ERD
+![image](https://user-images.githubusercontent.com/89223981/171916031-2268d54a-b2e6-49fb-84aa-005ef70019df.png)
+
+## Original Wireframes
 ### Home Page
 ![image](https://user-images.githubusercontent.com/89223981/171911119-e9b0528e-c187-428c-b56c-19b9c37ce0f8.png)
 
@@ -56,35 +92,8 @@ If logged in:
 ### Login/Signup Pages
 ![image](https://user-images.githubusercontent.com/89223981/171911342-695a3786-26b8-4b2d-980d-c4fee8fb182e.png)
 
-## ERD
-![image](https://user-images.githubusercontent.com/89223981/171916031-2268d54a-b2e6-49fb-84aa-005ef70019df.png)
-
-## Installation Instructions
-
-## Known Issues
-
-## Major Hurdles
-
-## Future Goals & Implementation
-
-## API
-I will use the Board Game Geek API to seed my own database with data. The API is free to use and does not require any authentication. It's docs can be found [here](https://boardgamegeek.com/wiki/page/BGG_XML_API2).
-
-## Feasibility Study
-If needed, I will include one here.  Before I begin with the real coding, I will ensure that I can properly seed a PostrgreSQL database with the data I need from the Board Game Geeks API.  If not, I will have to switch to using a MERN Stack and not Django
-
-
-- **Scope:** What are you planning to build? What do you reasonably think you can implement in the time period?
-- **User Stories:** Who is your user? What features will your app have?
-- **Wireframes:** Sketch out what your core pages will look like and how they will work. Consider making a *paper prototype* to demonstrate and/or test key user interactions.
-- **Data Models:** Draw out the models and any associations for your project in an entity relationship diagram (ERD).
-- **Milestones:** Divide your work into parts - the most essential features for your MVP, features that are important but not essential, and features that can be saved for a later iteration. Create 3-5 major milestones with dates outlining when you expect essential features will be done.
-- **Feasibility Study (optional):** If you're using an external API or scraping a website, make sure you can get that data. If you're using a new language, framework, or tool, go through its getting started tutorial. ***We will ask to see your results.***
-
 ### Notes from Capstone Reqs for end of project README.md updates/confirmation of completion
-- A **working full-stack application**, hosted somewhere on the internet.
-- A **git repository hosted on Github**, with frequent commits dating back to the beginning of the project.
-- A **link to your hosted working app** in the URL section of your Github repo.
+
 - **A `README.md` file** with:
     - A **link to your hosted working app**.
     - A paragraph-long **description** (elevator pitch) of your project.
