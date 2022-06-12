@@ -36,13 +36,12 @@ class GameDetail(DetailView):
 class UserDetail(TemplateView):
     template_name = "user_profile.html"
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, pk, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["wishlists"] = Wishlist.objects.all()
-        context["collections"] = Collection.objects.all()
+        context["wishlists"] = Wishlist.objects.filter(user_id=pk)
+        print(context["wishlists"])
+        context["collections"] = Collection.objects.filter(user_id=pk)
         return context   
-
-
 
 class SearchGame(TemplateView):
     template_name = "search.html"
