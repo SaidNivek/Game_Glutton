@@ -4,10 +4,26 @@
 
 <div class="container">
 
-    <h1>Test User Profile Page</h1>
+    <h1>{{user.username}}'s' Profile Page</h1>
+    <div class="buttons">
+        <a class="btn btn-light" href="{% url 'user_profile' user.pk %}" class="button is-info"> Update User
+            <span class="icon">
+                <i class="fas fa-edit"></i>
+            </span>
+        </a>
+    </div>
 
-    <h2>Username:</h2>
-    <p>{{user.username}}</p>
+    <h2>First Name</h2>
+    <p>{{user.first_name}}</p>
+    
+    <h2>Last Name</h2>
+    <p>{{user.last_name}}</p>
+
+    <h2>Email</h2>
+    <p>{{user.email}}</p>
+
+    <h2>Member Since</h2>
+    <p>{{user.date_joined}}</p>
 
     <h2>{{user.username}}'s Collections:</h2>
     {% for collection in collections %}
@@ -26,7 +42,6 @@
     <p>No wishlists or collections.</p>
 
     {%endfor %}
-
 
     {% endblock %}
 

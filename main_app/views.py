@@ -4,13 +4,13 @@ from django.views import View
 from django.http import HttpResponse
 import xml.etree.ElementTree as ET
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import UpdateView, DeleteView
 from django.views.generic import DetailView
-from main_app.models import Game, TrendingGame, Wishlist, Collection
+from main_app.models import Game, TrendingGame, Wishlist, Collection, User
 import requests
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from django.http import Http404
+from django.urls import reverse
 
 # Create views here.
 class Home(TemplateView):
@@ -33,7 +33,7 @@ class GameDetail(DetailView):
         context["games"] = Game.objects.all()
         return context   
 
-class UserDetail(TemplateView):
+class UserProfile(TemplateView):
     template_name = "user_profile.html"
 
     def get_context_data(self, pk, **kwargs):
@@ -42,6 +42,15 @@ class UserDetail(TemplateView):
         print(context["wishlists"])
         context["collections"] = Collection.objects.filter(user_id=pk)
         return context   
+
+class UserUpdate(UpdateView):
+    model = User
+    fields = ['first_name', 'last_name', 'email']
+    template_name = "user_update.html"
+    succes_url = "/user/"
+
+    def get_success_url(self):
+        return reverse('user_profile', kwargs={'pk': self.object.pk})
 
 class SearchGame(TemplateView):
     template_name = "search.html"
